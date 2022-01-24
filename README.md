@@ -1,2 +1,2 @@
 # rachai-homework
-This is the best stupid homework ever
+This is my personal homework
