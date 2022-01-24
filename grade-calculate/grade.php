@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Document</title>
+    <title>คำนวนเกรด</title>
 </head>
 
 <body>
@@ -25,12 +25,20 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
+                            <label for="name">ชื่อ นามสกุล</label>
+                            <input type="text" id="name" class="form-control" name="name" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
                             <label for="score">คะแนนเก็บ</label>
-                            <input type="text" id="score" class="form-control" name="score" required>
+                            <input type="number" id="score" class="form-control" name="score" required>
                         </div>
                         <div class="col">
                             <label for="score2">คะแนนกลางภาค</label>
-                            <input type="text" id="score2" class="form-control" name="score2" required>
+                            <input type="number" id="score2" class="form-control" name="score2" required>
                         </div>
                     </div>
                 </div>
@@ -38,11 +46,11 @@
                     <div class="row">
                         <div class="col">
                             <label for="score3">คะแนนจิตพิสัย</label>
-                            <input type="text" id="score3" class="form-control" name="score3" required>
+                            <input type="number" id="score3" class="form-control" name="score3" required>
                         </div>
                         <div class="col">
                             <label for="score4">คะแนนสอบปลายภาค</label>
-                            <input type="text" id="score4" class="form-control" name="score4" required>
+                            <input type="number" id="score4" class="form-control" name="score4" required>
                         </div>
                     </div>
                 </div>
@@ -58,12 +66,26 @@
 
     <?php } else {
         $br = ('<br>');
+        $hr = ('<hr>');
+        $name = $_POST['name'];
         $score = $_POST['score'];
         $score2 = $_POST['score2'];
         $score3 = $_POST['score3'];
         $score4 = $_POST['score4'];
 
         $sum = $score + $score2 + $score3 + $score4;
+
+        echo "<div class='container'>";
+
+        echo $hr;
+        echo 'สวัสดีคุณ : '.$name.$hr;
+        echo 'มีคะแนนเก็บ : '.$score.' คะแนน'.$br;
+        echo 'มีคะแนนกลางภาค : '.$score2.' คะแนน'.$br;
+        echo 'มีคะแนนจิตพิสัย : '.$score3.' คะแนน'.$br;
+        echo 'มีคะแนนสอบปลายภาค : '.$score4.' คะแนน'.$hr;
+
+        echo 'คุณมีคะแนนรวมทั้งหมด : '.$sum.' คะแนน'.$br;
+
 
         if($sum>=80){
             echo 'ยินดีด้วย คุณได้เกรด 4!'.$br;
@@ -77,6 +99,8 @@
             echo 'ยินดีด้วย คุณได้เรียนใหม่!'.$br;
         }
 
+
+        echo '</div>';
     } ?>
 
 
